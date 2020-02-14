@@ -18,15 +18,22 @@ namespace WPFOldMaidGame
 {
     class CardElement : Image
     {
+        private string suitImage;
         public CardElement(Card card, double parentHeight)
         {
-            this.Source = new BitmapImage(new Uri(@"pack://application:,,,/Content/Images/Cards/" + card.Suit + ".png"));
+            this.suitImage = @"pack://application:,,,/Content/Images/Cards/" + card.Suit + ".png";
+            this.Source = new BitmapImage(new Uri(suitImage));
             this.Height = parentHeight;
             this.Width = this.Height - 20;
             Thickness m = this.Margin;
             m.Left = 5;
             m.Right = 5;
             this.Margin = m;
+        }
+
+        public void OppenentCard()
+        {
+            this.Source = new BitmapImage(new Uri(@"pack://application:,,,/Content/Images/Cards/B1.png"));
         }
 
     }

@@ -79,6 +79,12 @@
                     x:Name="CpuHandPanel"
                     DockPanel.Dock="Top" Orientation="Horizontal" Height="180" />
 
+                <StackPanel 
+                    x:Name="MessagePanel"
+                    DockPanel.Dock="Top" Orientation="Vertical" HorizontalAlignment="Center" Height="200" >
+                    <TextBlock x:Name="GameLog" FontSize="50" VerticalAlignment="Center" TextAlignment="Center" />
+                    <TextBlock x:Name="GameMessage" FontSize="50" VerticalAlignment="Center" TextAlignment="Center" />
+                </StackPanel>
 
                 <TextBlock 
                     Text = "{Binding HumanPlayer.PlayerName, Mode = OneWay}"
@@ -89,7 +95,7 @@
                 <StackPanel 
                     x:Name="PlayerHandPanel"
                     DockPanel.Dock="Bottom" Orientation="Horizontal" Height="180" >
-                    
+
                 </StackPanel>
 
 

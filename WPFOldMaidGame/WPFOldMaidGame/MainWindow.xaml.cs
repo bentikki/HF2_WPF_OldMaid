@@ -97,7 +97,7 @@ namespace WPFOldMaidGame
             for (int i = 0; i < game.CPU.Hand.Count; i++)
             {
                 Image imageCard = new CardElement(game.CPU.Hand[i], CpuPanel.Height - 10);
-
+                ((CardElement)imageCard).OppenentCard();
                 imageCard.MouseEnter += new MouseEventHandler(imageCard_MouseEnter);
                 imageCard.MouseLeave += new MouseEventHandler(imageCard_MouseLeave);
                 imageCard.MouseLeftButtonUp += new MouseButtonEventHandler(imageCard_MouseLeftButtonUp);
@@ -121,20 +121,37 @@ namespace WPFOldMaidGame
 
         private void imageCard_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Image selectedCard = ((Image)sender);
-            int handIndex = CpuHandPanel.Children.IndexOf(selectedCard);
-            CpuHandPanel.Children.RemoveAt(handIndex);
-            game.HumanPlayer.TakeCard(game.CPU, Convert.ToByte(handIndex));
-            this.UpdateHands();
-
-
-            int takenHandIndex = Convert.ToInt16( game.TakeCPUTurn() );
-            PlayerHandPanel.Children.RemoveAt(takenHandIndex);
-            this.UpdateHands();
-
-            if (!game.NewRound())
+            
+            if (game.NewRound())
             {
-                StartGame();
+                Image selectedCard = ((Image)sender);
+                int handIndex = CpuHandPanel.Children.IndexOf(selectedCard);
+                CpuHandPanel.Children.RemoveAt(handIndex);
+                game.HumanPlayer.TakeCard(game.CPU, Convert.ToByte(handIndex));
+                this.UpdateHands();
+
+                if (game.NewRound())
+                {
+                    Dictionary<int?, Card> takenCard = game.TakeCPUTurn();
+                    int takenHandIndex = Convert.ToInt16(takenCard.Keys.First());
+                    PlayerHandPanel.Children.RemoveAt(takenHandIndex);
+                    this.UpdateHands();
+
+                    GameLog.Text = "The opponent has taken your " + takenCard.Values.First().Suit + " card!";
+                    GameMessage.Text = "Your turn!";
+                }
+                else
+                {
+                    GameLog.Text = "";
+                    GameMessage.Text = game.EndingMessage();
+                }
+                
+            }
+            else
+            {
+                GameLog.Text = "";
+                GameMessage.Text = game.EndingMessage();
+                //StartGame();
             }
         }
 

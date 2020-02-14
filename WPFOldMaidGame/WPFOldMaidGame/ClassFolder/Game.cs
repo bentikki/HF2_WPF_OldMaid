@@ -56,16 +56,16 @@ namespace Sorteper.Classes
         //Method for the CPU player to take a turn.
         //Simply takes a random card from your hand and shuffles it owns hand.
         //Returns a string containing the message of what happened on the CPU players turn.
-        public int? TakeCPUTurn()
+        public Dictionary<int?, Card> TakeCPUTurn()
         {
-            int? cardValue = null;
+            Dictionary<int?, Card> cardValue = new Dictionary<int?, Card>();
             if (this.NewRound())
             {
                 Random rnd = new Random();
                 int rndNumber = rnd.Next(0, this.HumanPlayer.Hand.Count - 1);
                 Card takenCard = this.CPU.TakeCard(this.HumanPlayer, Convert.ToByte(rndNumber));
                 this.CPU.ShuffleHand();
-                cardValue = rndNumber;
+                cardValue.Add(rndNumber, takenCard);
             }
             return cardValue;
         }
