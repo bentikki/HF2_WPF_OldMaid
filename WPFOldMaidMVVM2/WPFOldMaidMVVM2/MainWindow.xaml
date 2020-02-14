@@ -1,0 +1,29 @@
+﻿<Window x:Class="WPFOldMaidMVVM2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WPFOldMaidMVVM2" 
+        xmlns:view="clr-namespace:WPFOldMaidMVVM2.Views" 
+        xmlns:viewmodel="clr-namespace:WPFOldMaidMVVM2.ViewModels" 
+        Title="Old Maid Game" 
+        Width="1920" Height="1080"
+        WindowState="Maximized"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="NoResize"
+        FontFamily="Showcard Gothic">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodel:StartViewModel}">
+            <view:StartView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:GameViewModel}">
+            <view:GameView/>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Window.DataContext>
+        <viewmodel:MainWindowViewModel />
+    </Window.DataContext>
+
+    <Grid>
+        <ContentControl Content="{Binding CurrentView}" />
+    </Grid>
+</Window>

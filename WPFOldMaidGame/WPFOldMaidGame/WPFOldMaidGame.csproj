@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{83B38B39-06EC-475A-A0A0-A48D332732B9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WPFOldMaidGame</RootNamespace>
+    <AssemblyName>WPFOldMaidGame</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CardElement.cs" />
+    <Compile Include="ClassFolder\Card.cs" />
+    <Compile Include="ClassFolder\Deck.cs" />
+    <Compile Include="ClassFolder\Game.cs" />
+    <Compile Include="ClassFolder\OldMaidDeck.cs" />
+    <Compile Include="ClassFolder\OldMaidGame.cs" />
+    <Compile Include="ClassFolder\Player.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Page1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Page1.xaml.cs">
+      <DependentUpon>Page1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Images\PlayGameBackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Images\MainMenuBackground.jpg" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Content\Images\Cards\B1.png" />
+    <Resource Include="Content\Images\Cards\B2.png" />
+    <Resource Include="Content\Images\Cards\bear.png" />
+    <Resource Include="Content\Images\Cards\bee.png" />
+    <Resource Include="Content\Images\Cards\bull.png" />
+    <Resource Include="Content\Images\Cards\camel.png" />
+    <Resource Include="Content\Images\Cards\cat.png" />
+    <Resource Include="Content\Images\Cards\crab.png" />
+    <Resource Include="Content\Images\Cards\crocodile.png" />
+    <Resource Include="Content\Images\Cards\dog.png" />
+    <Resource Include="Content\Images\Cards\duck.png" />
+    <Resource Include="Content\Images\Cards\fish.png" />
+    <Resource Include="Content\Images\Cards\grasshopper.png" />
+    <Resource Include="Content\Images\Cards\ladybug.png" />
+    <Resource Include="Content\Images\Cards\mouse.png" />
+    <Resource Include="Content\Images\Cards\ostrich.png" />
+    <Resource Include="Content\Images\Cards\Owl.png" />
+    <Resource Include="Content\Images\Cards\panda.png" />
+    <Resource Include="Content\Images\Cards\parrot.png" />
+    <Resource Include="Content\Images\Cards\penquin.png" />
+    <Resource Include="Content\Images\Cards\pig.png" />
+    <Resource Include="Content\Images\Cards\porkypine.png" />
+    <Resource Include="Content\Images\Cards\racoon.png" />
+    <Resource Include="Content\Images\Cards\rooster.png" />
+    <Resource Include="Content\Images\Cards\seahorse.png" />
+    <Resource Include="Content\Images\Cards\seal.png" />
+    <Resource Include="Content\Images\Cards\shark.png" />
+    <Resource Include="Content\Images\Cards\sheep.png" />
+    <Resource Include="Content\Images\Cards\snake.png" />
+    <Resource Include="Content\Images\Cards\squid.png" />
+    <Resource Include="Content\Images\Cards\whale.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

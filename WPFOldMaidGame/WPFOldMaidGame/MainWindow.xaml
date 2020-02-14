@@ -1,0 +1,105 @@
+﻿<Window x:Class="WPFOldMaidGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFOldMaidGame"
+        mc:Ignorable="d"
+        Title="Old Maid Game" 
+        Width="1920" Height="1080"
+        WindowState="Maximized"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="NoResize"
+        FontFamily="Showcard Gothic">
+    <Grid>
+
+        <Grid x:Name="MenuGrid" Visibility="Collapsed">
+            <Grid.Background>
+                <ImageBrush ImageSource="Content/Images/MainMenuBackground.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="20" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="40" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.Children>
+                <Ellipse Grid.Column="2" HorizontalAlignment="Center" Height="800" Margin="230,10,211.6,0" VerticalAlignment="Top" Width="800" Grid.Row="2" Stroke="#FF232222" Fill="#FFF3FDFF" SizeChanged="Ellipse_SizeChanged"/>
+                <ToggleButton  x:Name="btnPlayGame" Content="Play" Grid.Column="2" HorizontalAlignment="Center" Margin="363,285,351.6,134.4" Grid.Row="2" VerticalAlignment="Center" Width="159" Height="51" Click="btnPlayGame_Click" FontSize="22" />
+                <TextBlock x:Name="textBlock" Grid.Column="2" HorizontalAlignment="Center" Margin="269,87,283.6,0" Grid.Row="2" Text="Old Maid" VerticalAlignment="Top" FontSize="44" Height="68" Width="321" TextAlignment="Center"/>
+                <TextBox 
+                    x:Name="MenuNameTextBox"
+                    FontSize="18"
+                    Padding="2 2"
+                    Grid.Column="2" 
+                    HorizontalAlignment="Center" 
+                    Height="29" 
+                    Margin="413,198,308.6,0" 
+                    Grid.Row="2" 
+                    TextWrapping="Wrap" 
+                    VerticalAlignment="Top" 
+                    Width="152" KeyDown="MenuNameTextBox_KeyDown" />
+                <TextBlock TextAlignment="Right" x:Name="textBlock_Copy" Grid.Column="2" HorizontalAlignment="Center" Margin="310,198,475.6,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="25" Width="88" Height="29" Text="Name:"/>
+            </Grid.Children>
+        </Grid>
+
+
+        <Grid x:Name="PlayGameGrid" Visibility="Visible" DataContextChanged="PlayGameGrid_DataContextChanged">
+            <Grid.Background>
+                <ImageBrush ImageSource="Content/Images/PlayGameBackground.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="Auto" Name="MainContainer"  />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="20" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="40" />
+            </Grid.ColumnDefinitions>
+            <DockPanel LastChildFill="False" Grid.Column="2" Grid.Row="3">
+                <TextBlock 
+                    Text = "{Binding CPU.PlayerName, Mode = OneWay}"
+                    TextAlignment="Center"
+                    FontSize="24"
+                    Margin="0 10"
+                    DockPanel.Dock="Top" Grid.Column="2" Grid.Row="2" />
+                <StackPanel 
+                    x:Name="CpuHandPanel"
+                    DockPanel.Dock="Top" Orientation="Horizontal" Height="180" />
+
+
+                <TextBlock 
+                    Text = "{Binding HumanPlayer.PlayerName, Mode = OneWay}"
+                    TextAlignment="Center"
+                    FontSize="24"
+                    Margin="0 10"
+                    DockPanel.Dock="Bottom" Grid.Column="2" Grid.Row="2"  />
+                <StackPanel 
+                    x:Name="PlayerHandPanel"
+                    DockPanel.Dock="Bottom" Orientation="Horizontal" Height="180" >
+                    
+                </StackPanel>
+
+
+            </DockPanel>
+
+
+        </Grid>
+
+
+
+    </Grid>
+
+</Window>
